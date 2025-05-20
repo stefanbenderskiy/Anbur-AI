@@ -106,11 +106,11 @@ class Analytics:
     def __repr__(self):
         s = "Analytics:\n"
         for i, d, l, a in zip(range(self.n()), self.delta(), self.loss(), self.accuracy()):
-            s = s + f"epoch #{i + 1}:\n delta {round(d * 100, 2)}%,\n loss {round(l * 100, 2)}%,\n accuracy {round(a * 100, 2)}%\n"
-        s = s + f"Total loss:{round(self.total_loss() * 100, 2)}\n"
-        s = s + f"Total accuracy:{round(self.total_accuracy() * 100, 2)}\n"
-        s = s + f"Average loss:{round(self.average_loss() * 100, 2)}\n"
-        s = s + f"Average accuracy:{round(self.average_accuracy() * 100, 2)}\n"
+            s = s + f"epoch #{i + 1}:\n delta {round(d * 100, 2)},\n loss {round(l * 100, 2)}%,\n accuracy {round(a * 100, 2)}%\n"
+        s = s + f"Total loss:{round(self.total_loss() * 100, 2)}%\n"
+        s = s + f"Total accuracy:{round(self.total_accuracy() * 100, 2)}%\n"
+        s = s + f"Average loss:{round(self.average_loss() * 100, 2)}%\n"
+        s = s + f"Average accuracy:{round(self.average_accuracy() * 100, 2)}%\n"
         s = s + f"Average delta:{round(self.average_delta() * 100, 2)}\n"
 
         return s
