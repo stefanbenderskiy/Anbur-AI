@@ -177,8 +177,9 @@ class Perceptron:
     def train(self, train_x, train_y, epochs=1, learning_rate=0.05):
         analytics = Analytics()
         for i in range(epochs):
+            outs = []
             for x, y in zip(train_x, train_y):
                 self.backprop(x, y, learning_rate)
-                o = self.feedforward(x)
-                analytics.append(o, y)
+                outs.append(self.feedforward(x))
+            analytics.append(outs, y)
         return analytics
