@@ -16,11 +16,11 @@ perceptron = None
 def run():
     global perceptron, dataset,train_x, train_y
     print("Creating neural network...")
-    perceptron = Perceptron(size, 26, [(size, Activation.sigmoid)])  # сама нейросеть
+    perceptron = Perceptron(size, 27, [(2 * size, Activation.sigmoid)])  # сама нейросеть
     print("Loading data...")
     load_dataset()
     train_x = dataset.values()
-    train_y = [np.array([[1 if j == i else 0 for j in range(26)]]) for i in range(26)]
+    train_y = [np.array([[1 if j == i else 0 for j in range(27)]]) for i in range(27)]
     print("Done!")
 
 def command(name,*args):
@@ -68,7 +68,7 @@ def predict(x):
         for i in range(len(out)):
             print(f"{symbols[i]} - {round(i * 100, 2)}%")
         result = list(out).index(max(list(out)))
-        if result < 0.5:
+        if out[result] < 0.5:
             print("Result: Not an anbur symbol")
         else:
             print(f"Result: {symbols[result]} symbol")
